@@ -54,3 +54,17 @@ Gnome Sort:
 Gnome sort (Stupid sort) is a sorting algorithm which is similar to insertion sort, except that moving an element to its proper place is accomplished by a series of swaps, as in bubble sort. It is conceptually simple, requiring no nested loops. The running time is O(n^2), but tends towards O(n) if the list is initially almost sorted. In practice the algorithm can run as fast as Insertion sort. The average runtime is O(n^2).
 
 The algorithm always finds the first place where two adjacent elements are in the wrong order, and swaps them. It takes advantage of the fact that performing a swap can introduce a new out-of-order adjacent pair only right before or after the two swapped elements. It does not assume that elements forward of the current position are sorted, so it only needs to check the position directly before the swapped elements.
+
+Stooge Sort:
+======================
+
+Stooge sort is a recursive sorting algorithm with a time complexity of O(nlog 3 / log 1.5 ) = O(n2.7095...). The running time of the algorithm is thus extremely slow compared to efficient sorting algorithms, such as Merge sort, and is even slower than Bubble sort, a canonical example of a fairly inefficient and simple sort.
+
+The algorithm is defined as follows:
+
+    If the value at the end is smaller than the value at the start, swap them.
+    If there are three or more elements in the current list subset, then:
+        Stooge sort the initial 2/3 of the list
+        Stooge sort the final 2/3 of the list
+        Stooge sort the initial 2/3 of the list again
+    else: exit the procedure
