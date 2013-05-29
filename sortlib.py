@@ -1,3 +1,14 @@
+#######################################################################################################################################################################
+####File : sortlib.py
+####
+####Author : Sayan Paul
+####
+####Objective : This file contains most of the common and uncommon sorting algorithms
+####            implemented . This can be used for eductional or commercial purposes.
+########################################################################################################################################################################
+
+import random
+
 def insertion(ar):
     for i in range(len(ar)):
         j=i-1
@@ -131,6 +142,21 @@ def stoogesort(ar,i=0,j=-1):
     #print ar   #-->prints too many steps in recursive tree
     return ar
 
+def bogosort(ar):
+    sorted=False
+    while not sorted:
+        sorted=True
+        for i in range(len(ar)-1):
+            if ar[i]>ar[i+1]:
+                sorted=False
+                break
+        if sorted:
+            break
+        for i in range(1,len(ar)):
+            j=random.choice(range(i+1))
+            ar[i],ar[j]=ar[j],ar[i]
+        #print ar
+
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -152,4 +178,6 @@ if __name__=='__main__':
     gnomesort(unsorted[:])
     print "Stooge Sort : "
     stoogesort(unsorted[:])
+    print "Bogosort : "
+    bogosort(unsorted[:])
     
