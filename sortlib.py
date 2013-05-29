@@ -73,7 +73,20 @@ def cocktailsort(ar):
             i-=1
         print ar
 
-
+def oddeven(ar):
+    sorted =False
+    while(not sorted):
+        sorted=True
+        for i in range(1,len(ar)-1,2):
+            if ar[i]>ar[i+1]:
+                ar[i],ar[i+1]=ar[i+1],ar[i]
+                sorted=False
+        for i in range(0,len(ar)-1,2):
+            if ar[i]>ar[i+1]:
+                ar[i],ar[i+1]=ar[i+1],ar[i]
+                sorted=False
+        if not sorted:
+            print ar
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -86,5 +99,7 @@ if __name__=='__main__':
     print "Cocktail Sort : "
     cocktailsort(unsorted[:])
     print "Quicksort : "
-    print quickSort(unsorted[:])
+    quickSort(unsorted[:])
+    print "Odd-Even Sort : "
+    oddeven(unsorted[:])
     
