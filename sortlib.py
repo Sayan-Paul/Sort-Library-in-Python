@@ -118,6 +118,19 @@ def gnomesort(ar):
                 pos=pos-1
         print ar
 
+def stoogesort(ar,i=0,j=-1):
+    if j==-1:
+        j=len(ar)-1
+    if ar[j]<ar[i]:
+        ar[i],ar[j]=ar[j],ar[i]
+    if (j-i+1)>=3:
+        t=(j-i+1)/3
+        stoogesort(ar, i  , j-t)
+        stoogesort(ar, i+t, j  )
+        stoogesort(ar, i  , j-t)
+    #print ar   #-->prints too many steps in recursive tree
+    return ar
+
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -137,4 +150,6 @@ if __name__=='__main__':
     combsort(unsorted[:])
     print "Gnome Sort : "
     gnomesort(unsorted[:])
+    print "Stooge Sort : "
+    stoogesort(unsorted[:])
     
