@@ -68,3 +68,9 @@ The algorithm is defined as follows:
         Stooge sort the final 2/3 of the list
         Stooge sort the initial 2/3 of the list again
     else: exit the procedure
+
+Bogosort:
+======================
+
+This sorting algorithm is probabilistic in nature. If all elements to be sorted are distinct, the expected number of comparisons in the average case is asymptotically equivalent to (e-1) n!, and the expected number of swaps in the average case equals (n-1) n!. The expected number of swaps grows faster than the expected number of comparisons, because if the elements are not in order, this will usually be discovered after only a few comparisons no matter how many elements there are, but the work of shuffling the collection is proportional to its size. In the worst case, the number of comparisons and swaps are both unbounded, for the same reason that a tossed coin might turn up heads any number of times in a row.
+
