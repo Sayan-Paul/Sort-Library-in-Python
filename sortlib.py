@@ -13,14 +13,10 @@ def insertion(ar):
 def selection(ar):
     for i in range(len(ar)):
         pos=i
-        sorted=True
         for j in range(i,len(ar)):
             if(ar[pos]>ar[j]):
                 pos=j
-                sorted=False
         ar[i],ar[pos]=ar[pos],ar[i]
-        if(sorted):
-            break
         print ar
 
 def bubble(ar):
@@ -88,6 +84,22 @@ def oddeven(ar):
         if not sorted:
             print ar
 
+def combsort(ar):
+    gap=len(ar)
+    shrink=1.3
+    swapped=False
+    while ((not gap==1) or (not swapped)):
+        gap=int(gap/shrink)
+        if gap<1:
+            gap=1
+        swapped=False
+        for i in range(0,len(ar)-gap):
+            if ar[i]>ar[i+gap]:
+                ar[i],ar[i+gap]=ar[i+gap],ar[i]
+                swapped =True
+        print ar
+
+
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
     print "Insertion Sort : "
@@ -102,4 +114,6 @@ if __name__=='__main__':
     quickSort(unsorted[:])
     print "Odd-Even Sort : "
     oddeven(unsorted[:])
+    print "Comb Sort : "
+    combsort(unsorted[:])
     
