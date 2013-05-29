@@ -99,6 +99,25 @@ def combsort(ar):
                 swapped =True
         print ar
 
+def gnomesort(ar):
+    pos=1
+    last=0
+    while pos<len(ar):
+        if ar[pos]>=ar[pos-1]:
+            if last:
+                pos=last
+                last=0
+            pos+=1
+        else:
+            ar[pos],ar[pos-1]=ar[pos-1],ar[pos]
+            if pos>1:
+                if not last:
+                    last=pos
+                pos-=1
+            else:
+                pos=pos-1
+        print ar
+
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -116,4 +135,6 @@ if __name__=='__main__':
     oddeven(unsorted[:])
     print "Comb Sort : "
     combsort(unsorted[:])
+    print "Gnome Sort : "
+    gnomesort(unsorted[:])
     
