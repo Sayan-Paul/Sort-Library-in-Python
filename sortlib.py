@@ -160,7 +160,6 @@ def bogosort(ar):
 
 def heapsort(ar):
     heapify(ar)
-    print ar
     end=len(ar)-1
     while end>0:
         ar[end],ar[0]=ar[0],ar[end]
@@ -181,10 +180,11 @@ def siftdown(ar,start,end):
             swap=child
         if child+1<=end and ar[swap]<ar[child+1]:
             swap=child+1
-        if not swap==root:
-            ar[root],ar[swap]
+        if not (swap==root):
+            ar[root],ar[swap]=ar[swap],ar[root]
             root=swap
-            
+        else:
+            return
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
