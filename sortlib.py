@@ -7,6 +7,7 @@
 ####            implemented . This can be used for eductional or commercial purposes.
 ########################################################################################################################################################################
 
+#!/usr/bin/python
 import random
 
 def insertion(ar):
