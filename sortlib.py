@@ -158,6 +158,33 @@ def bogosort(ar):
             ar[i],ar[j]=ar[j],ar[i]
         #print ar
 
+def heapsort(ar):
+    heapify(ar)
+    print ar
+    end=len(ar)-1
+    while end>0:
+        ar[end],ar[0]=ar[0],ar[end]
+        end-=1
+        siftdown(ar,0,end)
+        print ar
+def heapify(ar):
+    start=(len(ar)-1)/2
+    while start>=0:
+        siftdown(ar,start,len(ar)-1)
+        start-=1
+def siftdown(ar,start,end):
+    root=start
+    while root*2+1<=end:
+        child=root*2+1
+        swap=root
+        if ar[swap]<ar[child]:
+            swap=child
+        if child+1<=end and ar[swap]<ar[child+1]:
+            swap=child+1
+        if not swap==root:
+            ar[root],ar[swap]
+            root=swap
+            
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -181,4 +208,6 @@ if __name__=='__main__':
     stoogesort(unsorted[:])
     print "Bogosort : "
     bogosort(unsorted[:])
+    print "Heapsort : "
+    heapsort(unsorted[:])
     
