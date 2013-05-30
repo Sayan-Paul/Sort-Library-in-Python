@@ -9,6 +9,11 @@
 
 #!/usr/bin/python
 import random
+class bintree(Object):          ###structure for binary tree formulation
+    def __init__(self):
+        self.val=0
+        self.left=None
+        self.right=None
 
 def insertion(ar):
     for i in range(len(ar)):
