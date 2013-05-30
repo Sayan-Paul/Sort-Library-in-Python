@@ -85,3 +85,9 @@ In the first step, a heap is built out of the data.
 In the second step, a sorted array is created by repeatedly removing the largest element from the heap, and inserting it into the array. The heap is reconstructed after each removal. Once all objects have been removed from the heap, we have a sorted array. The direction of the sorted elements can be varied by choosing a min-heap or max-heap in step one.
 
 Heapsort can be performed in place. The array can be split into two parts, the sorted array and the heap. The storage of heaps as arrays is diagrammed here. The heap's invariant is preserved after each extraction, so the only cost is that of extraction.
+
+Shellsort:
+======================
+
+Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It generalizes an exchanging sort, such as insertion or bubble sort, by starting the comparison and exchange of elements with elements that are far apart before finishing with neighboring elements. Starting with far apart elements can move some out-of-place elements into position faster than a simple nearest neighbor exchange. 
+The running time of Shellsort is heavily dependent on the gap sequence it uses. For many practical variants, determining their time complexity remains an open problem.Shellsort is a multi-pass algorithm. Each pass is an insertion sort of the sequences consisting of every h-th element for a fixed gap h (also known as the increment). This is referred to as h-sorting.

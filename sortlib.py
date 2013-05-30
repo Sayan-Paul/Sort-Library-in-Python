@@ -186,6 +186,19 @@ def siftdown(ar,start,end):
         else:
             return
 
+def shellsort(ar):
+    gaps=[701,301,132,57,23,10,4,1]
+    for gap in gaps:
+        for i in range(gap,len(ar)):
+            t=ar[i]
+            for j in range(i,gap-1,-gap):
+                if t>ar[j-gap]:
+                    break
+                ar[j]=ar[j-gap]
+            ar[j]=t
+            print ar
+    
+
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
     print "Insertion Sort : "
@@ -210,4 +223,6 @@ if __name__=='__main__':
     bogosort(unsorted[:])
     print "Heapsort : "
     heapsort(unsorted[:])
+    print "Shellsort : "
+    shellsort(unsorted[:])
     
