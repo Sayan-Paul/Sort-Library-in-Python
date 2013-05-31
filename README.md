@@ -91,3 +91,8 @@ Shellsort:
 
 Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It generalizes an exchanging sort, such as insertion or bubble sort, by starting the comparison and exchange of elements with elements that are far apart before finishing with neighboring elements. Starting with far apart elements can move some out-of-place elements into position faster than a simple nearest neighbor exchange. 
 The running time of Shellsort is heavily dependent on the gap sequence it uses. For many practical variants, determining their time complexity remains an open problem.Shellsort is a multi-pass algorithm. Each pass is an insertion sort of the sequences consisting of every h-th element for a fixed gap h (also known as the increment). This is referred to as h-sorting.
+
+Tree Sort:
+======================
+
+In development-----<<<<<<<<<<<<<<
