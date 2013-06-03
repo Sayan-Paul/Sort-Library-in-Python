@@ -95,4 +95,5 @@ The running time of Shellsort is heavily dependent on the gap sequence it uses. 
 Tree Sort:
 ======================
 
-In development-----<<<<<<<<<<<<<<
+A tree sort is a sort algorithm that builds a binary search tree from the keys to be sorted, and then traverses the tree (in-order) so that the keys come out in sorted order. Its typical use is when sorting the elements of a stream from a file. Several other sorts would have to load the elements to a temporary data structure, whereas in a tree sort the act of loading the input into a data structure is sorting it.
+Adding one item to a binary search tree is on average an O(log(n)) process, so adding n items is an O(n log(n)) process, making tree sort a so-called 'fast sort'. But adding an item to an unbalanced binary tree needs O(n) time in the worst-case, when the tree resembles a linked list (degenerate tree), causing a worst case of O(n2) for this sorting algorithm. The worst case scenario then is triggered by handing a Tree Sort algorithm an already sorted set. This would make the time needed to insert all elements into the binary tree O(n2). The dominant process in the Tree Sort algorithm is the "insertion" into the binary tree, assuming that the time needed for retrieval is O(n).
