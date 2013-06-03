@@ -10,12 +10,29 @@
 
 #!/usr/bin/python
 import random
-class bintree(Object):          ###structure for binary tree formulation
+class bintree(object):          ###structure for binary tree formulation
     def __init__(self):
-        self.val=0
+        self.val=None
         self.left=None
         self.right=None
-
+    def insert(self,val):
+        if self.val==None:
+            self.val=val
+            self.left=bintree()
+            self.right=bintree()
+        else:
+            if val<self.val:
+                self.left.insert(val)
+            else:
+                self.right.insert(val)
+        return
+    def inorder(self):
+        if self.val==None:
+            return
+        self.left.inorder()
+        print self.val,
+        self.right.inorder()
+        
 def insertion(ar):
     for i in range(len(ar)):
         j=i-1
@@ -133,7 +150,7 @@ def gnomesort(ar):
                     last=pos
                 pos-=1
             else:
-                pos=pos-1
+                pos+=1
         print ar
 
 def stoogesort(ar,i=0,j=-1):
@@ -203,7 +220,14 @@ def shellsort(ar):
                 ar[j]=ar[j-gap]
             ar[j]=t
             print ar
-    
+
+
+def treesort(ar):
+    root=bintree()
+    for i in ar:
+        root.insert(i)
+    root.inorder()
+    print
 
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
@@ -231,4 +255,6 @@ if __name__=='__main__':
     heapsort(unsorted[:])
     print "Shellsort : "
     shellsort(unsorted[:])
+    print "Treesort : "
+    treesort(unsorted[:])
     
