@@ -214,10 +214,10 @@ def shellsort(ar):
     for gap in gaps:
         for i in range(gap,len(ar)):
             t=ar[i]
-            for j in range(i,gap-1,-gap):
-                if t>=ar[j-gap]:
-                    break
-                ar[j]=ar[j-gap]
+            j = i
+            while j >= gap and ar[j - gap] > t:
+                 ar[j] = ar[j - gap]
+                 j -= gap
             ar[j]=t
             print ar
 
