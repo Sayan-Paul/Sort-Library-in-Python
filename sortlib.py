@@ -123,7 +123,7 @@ def combsort(ar):
     gap=len(ar)
     shrink=1.3
     swapped=False
-    while ((not gap==1) or (not swapped)):
+    while not (gap==1 and not swapped):
         gap=int(gap/shrink)
         if gap<1:
             gap=1
@@ -215,7 +215,7 @@ def shellsort(ar):
         for i in range(gap,len(ar)):
             t=ar[i]
             for j in range(i,gap-1,-gap):
-                if t>ar[j-gap]:
+                if t>=ar[j-gap]:
                     break
                 ar[j]=ar[j-gap]
             ar[j]=t
