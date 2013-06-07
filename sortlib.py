@@ -259,6 +259,26 @@ def merge(left,right):
     return res
 
 
+def strandsort(ar):
+    res=[]
+    while len(ar):
+        sl=[0]
+        sl[0]=ar[0]
+        ar=ar[1:]
+        for i in range(len(ar)):
+            if ar==None:
+                break
+            if ar[i]>sl[-1]:
+                   sl.append(ar[i])
+                   ar=ar.remove(ar[i])
+        res=merge(sl,res)
+        print res
+        if ar==None:
+            break
+    print res
+    return res
+
+
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
     print "Insertion Sort : "
@@ -289,4 +309,5 @@ if __name__=='__main__':
     treesort(unsorted[:])
     print "Mergsort : "
     mergesort(unsorted[:])
-    
+    print "Strand Sort : "
+    strandsort(unsorted[:])

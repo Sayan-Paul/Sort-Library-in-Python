@@ -109,7 +109,7 @@ Conceptually, a merge sort works as follows
 
 A natural merge sort is similar to a bottom up merge sort except that any naturally occurring runs (sorted sequences) in the input are exploited. In the bottom up merge sort, the starting point assumes each run is one item long. In practice, random input data will have many short runs that just happen to be sorted. In the typical case, the natural merge sort may not need as many passes because there are fewer runs to merge. For example, in the best case, the input is already sorted (i.e., is one run), so the natural merge sort need only make one pass through the data.
 
-Stran Sort:
+Strand Sort:
 ======================
 
 Strand sort is a sorting algorithm. It works by repeatedly pulling sorted sublists out of the list to be sorted and merging them with a result array. Each iteration through the unsorted list pulls out a series of elements which were already sorted, and merges those series together.
