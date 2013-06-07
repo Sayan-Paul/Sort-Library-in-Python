@@ -260,23 +260,31 @@ def merge(left,right):
 
 
 def strandsort(ar):
-    res=[]
-    while len(ar):
-        sl=[0]
-        sl[0]=ar[0]
-        ar=ar[1:]
-        for i in range(len(ar)):
-            if ar==None:
-                break
-            if ar[i]>sl[-1]:
-                   sl.append(ar[i])
-                   ar=ar.remove(ar[i])
-        res=merge(sl,res)
-        print res
-        if ar==None:
-            break
-    print res
-    return res
+    items = len(ar)
+    sortedBins = []
+    while( len(ar) > 0 ):
+        highest = float("-inf")
+        newBin = []
+        i = 0
+        while( i < len(ar) ):
+            if( ar[i] >= highest ):
+                highest = ar.pop(i)
+                newBin.append( highest )
+            else:
+                i=i+1
+        sortedBins.append(newBin)
+     
+    sorted = []
+    while( len(sorted) < items ):
+        lowBin = 0
+        for j in range( 0, len(sortedBins) ):
+            if( sortedBins[j][0] < sortedBins[lowBin][0] ):
+                lowBin = j
+        sorted.append( sortedBins[lowBin].pop(0) )
+        if( len(sortedBins[lowBin]) == 0 ):
+            del sortedBins[lowBin]
+    print sorted
+    return sorted
 
 
 if __name__=='__main__':
