@@ -97,3 +97,14 @@ Tree Sort:
 
 A tree sort is a sort algorithm that builds a binary search tree from the keys to be sorted, and then traverses the tree (in-order) so that the keys come out in sorted order. Its typical use is when sorting the elements of a stream from a file. Several other sorts would have to load the elements to a temporary data structure, whereas in a tree sort the act of loading the input into a data structure is sorting it.
 Adding one item to a binary search tree is on average an O(log(n)) process, so adding n items is an O(n log(n)) process, making tree sort a so-called 'fast sort'. But adding an item to an unbalanced binary tree needs O(n) time in the worst-case, when the tree resembles a linked list (degenerate tree), causing a worst case of O(n2) for this sorting algorithm. The worst case scenario then is triggered by handing a Tree Sort algorithm an already sorted set. This would make the time needed to insert all elements into the binary tree O(n2). The dominant process in the Tree Sort algorithm is the "insertion" into the binary tree, assuming that the time needed for retrieval is O(n).
+
+Merge Sort:
+======================
+
+In computer science, a merge sort (also commonly spelled mergesort) is an O(n log n) comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output. 
+Conceptually, a merge sort works as follows
+
+    Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).
+    Repeatedly merge sublists to produce new sublists until there is only 1 sublist remaining. This will be the sorted list.
+
+A natural merge sort is similar to a bottom up merge sort except that any naturally occurring runs (sorted sequences) in the input are exploited. In the bottom up merge sort, the starting point assumes each run is one item long. In practice, random input data will have many short runs that just happen to be sorted. In the typical case, the natural merge sort may not need as many passes because there are fewer runs to merge. For example, in the best case, the input is already sorted (i.e., is one run), so the natural merge sort need only make one pass through the data.
