@@ -229,6 +229,36 @@ def treesort(ar):
     root.inorder()
     print
 
+def mergesort(ar):
+    if len(ar)<=1:
+        return ar
+    middle=len(ar)/2
+    left =ar[:middle]
+    right=ar[middle:]
+    left=mergesort(left)
+    right=mergesort(right)
+    res=merge(left,right)
+    print res
+    return res
+def merge(left,right):
+    res=[]
+    while len(left)+len(right):
+        if len(left)*len(right):
+            if left[0]<=right[0]:
+                res.append(left[0])
+                left=left[1:]
+            else:
+                res.append(right[0])
+                right=right[1:]
+        elif len(left):
+            res.append(left[0])
+            left=left[1:]
+        elif len(right):
+            res.append(right[0])
+            right=right[1:]
+    return res
+
+
 if __name__=='__main__':
     unsorted=[int(x) for x in raw_input().split(" ")]
     print "Insertion Sort : "
@@ -257,4 +287,6 @@ if __name__=='__main__':
     shellsort(unsorted[:])
     print "Treesort : "
     treesort(unsorted[:])
+    print "Mergsort : "
+    mergesort(unsorted[:])
     
