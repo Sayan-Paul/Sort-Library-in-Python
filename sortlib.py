@@ -11,11 +11,14 @@
 #!/usr/bin/python
 import random
 class bintree(object):          ###structure for binary tree formulation
+    "Binary Tree Container"
     def __init__(self):
         self.val=None
         self.left=None
         self.right=None
+        
     def insert(self,val):
+        "Insert node in tree"
         if self.val==None:
             self.val=val
             self.left=bintree()
@@ -26,7 +29,9 @@ class bintree(object):          ###structure for binary tree formulation
             else:
                 self.right.insert(val)
         return
+    
     def inorder(self):
+        "Inoder traversal of tree"
         if self.val==None:
             return
         self.left.inorder()
@@ -34,6 +39,7 @@ class bintree(object):          ###structure for binary tree formulation
         self.right.inorder()
         
 def insertion(ar):
+    "Insertion sort"
     for i in range(len(ar)):
         j=i-1
         ch=i
@@ -46,6 +52,7 @@ def insertion(ar):
             
 
 def selection(ar):
+    "Selection Sort"
     for i in range(len(ar)):
         pos=i
         for j in range(i,len(ar)):
@@ -55,6 +62,7 @@ def selection(ar):
         print ar
 
 def bubble(ar):
+    "Bubble sort"
     for i in range(len(ar)):
         sorted=True
         for j in range(len(ar)-i-1):
@@ -65,8 +73,9 @@ def bubble(ar):
             break
         print ar
 
-def quickSort(ar):          #This function returns the sorted list but does 
-    if len(ar)<=1:              #not change the original array like others
+def quickSort(ar):          #This function returns the sorted list but does not change the original array like others . Uses extra array and not in place .
+    "Quicksort implementation"
+    if len(ar)<=1:              
         return ar
     lf,rt=[],[]
     p=ar[0]
@@ -85,6 +94,7 @@ def quickSort(ar):          #This function returns the sorted list but does
 
 
 def cocktailsort(ar):
+    "Cocktail sort implementation"
     swapped=True
     while(swapped):
         swapped=False
@@ -105,6 +115,7 @@ def cocktailsort(ar):
         print ar
 
 def oddeven(ar):
+    "Odd-Even sort implementation"
     sorted =False
     while(not sorted):
         sorted=True
@@ -120,6 +131,7 @@ def oddeven(ar):
             print ar
 
 def combsort(ar):
+    "Comb sort implementation"
     gap=len(ar)
     shrink=1.3
     swapped=False
@@ -135,6 +147,7 @@ def combsort(ar):
         print ar
 
 def gnomesort(ar):
+    "Gnomesort implementation"
     pos=1
     last=0
     while pos<len(ar):
@@ -154,6 +167,7 @@ def gnomesort(ar):
         print ar
 
 def stoogesort(ar,i=0,j=-1):
+    "Stooge sort implementation"
     if j==-1:
         j=len(ar)-1
     if ar[j]<ar[i]:
@@ -167,6 +181,7 @@ def stoogesort(ar,i=0,j=-1):
     return ar
 
 def bogosort(ar):
+    "Bogosort implementation"
     sorted=False
     while not sorted:
         sorted=True
@@ -182,6 +197,7 @@ def bogosort(ar):
         #print ar
 
 def heapsort(ar):
+    "Heapsort implementation"
     heapify(ar)
     end=len(ar)-1
     while end>0:
@@ -190,11 +206,13 @@ def heapsort(ar):
         siftdown(ar,0,end)
         print ar
 def heapify(ar):
+    "Changes array to heap"
     start=(len(ar)-1)/2
     while start>=0:
         siftdown(ar,start,len(ar)-1)
         start-=1
 def siftdown(ar,start,end):
+    "finds approprite position in heap"
     root=start
     while root*2+1<=end:
         child=root*2+1
@@ -210,6 +228,7 @@ def siftdown(ar,start,end):
             return
 
 def shellsort(ar):
+    "Shellsort implementation"
     gaps=[701,301,132,57,23,10,4,1]
     for gap in gaps:
         for i in range(gap,len(ar)):
@@ -223,6 +242,7 @@ def shellsort(ar):
 
 
 def treesort(ar):
+    "Tree sort implementation"
     root=bintree()
     for i in ar:
         root.insert(i)
@@ -230,6 +250,7 @@ def treesort(ar):
     print
 
 def mergesort(ar):
+    "Merge sort implementation"
     if len(ar)<=1:
         return ar
     middle=len(ar)/2
@@ -241,6 +262,7 @@ def mergesort(ar):
     print res
     return res
 def merge(left,right):
+    "Merging left and right array in order"
     res=[]
     while len(left)+len(right):
         if len(left)*len(right):
@@ -260,6 +282,7 @@ def merge(left,right):
 
 
 def strandsort(ar):
+    "Strandsort implementation"
     items = len(ar)
     sortedBins = []
     while( len(ar) > 0 ):
